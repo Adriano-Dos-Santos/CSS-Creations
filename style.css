@@ -1,0 +1,128 @@
+/* $$ General styles */
+
+html {
+  font-size: 16px;
+  font-family: verdana, georgia, Helvetica, sans-serif;
+}
+
+body {
+  background-image: linear-gradient(
+    190deg,
+    rgb(115, 85, 155) 39%,
+    rgb(190, 106, 165) 100%
+  );
+  height: 100vh;
+}
+
+/* botão 1 */
+.fugur {
+  font-size: 50px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  color: rgb(255, 140, 245);
+  border: 5px solid rgb(255, 138, 245);
+  padding: 10px 40px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 32px rgb(255, 138, 245), 0 0 32px rgb(255, 138, 245); /*external neon effect*/
+  text-shadow: 0 0 20px rgba(255, 117, 225, 0.74), 0 0 13px; /*internal neon effect*/
+  position: relative;
+  left: 100px;
+  top: 40px;
+  margin-bottom: 100px;
+}
+
+/* below neon effect*/
+.fugur::before {
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 111, 219);
+  transform: perspective(84px) rotatex(30deg) scale(1, 0.3); /* change perspective, orientations and size*/
+  filter: blur(40px);
+  opacity: 0.7; /* reduced opacity, when hover the will opacity changes to 1 */
+  pointer-events: none; /* remove interaction with the mouse*/
+}
+
+/* strong neon effect on hover*/
+.fugur::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: 0 0 128px 32px rgb(255, 138, 245);
+  background-color: rgb(255, 138, 245);
+  opacity: 0;
+  z-index: -1; /*changes the stack order of an element.*/
+  transition: opacity(100ms) linear; /*animation*/
+}
+
+/*the below neon effect will get strongers and the second strong effect will pop up*/
+.fugur:hover::before,
+.fugur:hover::after {
+  opacity: 1;
+}
+
+.fugur:hover {
+  color: rgb(5, 4, 5);
+  text-shadow: none;
+}
+
+/* botão 2 */
+
+.neon {
+  font-size: 100px;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  color: rgb(255, 126, 148);
+  padding: 10px 40px;
+  border: 5px solid rgb(255, 126, 148);
+  border-radius: 16px;
+  margin-bottom: 100px;
+  position: relative;
+  left: 100px;
+  top: 50px;
+  box-shadow: inset 0 0 32px rgb(255, 126, 148), 0 0 32px rgb(255, 126, 148);
+  text-shadow: 0 0 8px hsl(0 0% 100%/ 0.3), 0 0 32px;
+}
+
+.neon::before {
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: rgb(255, 126, 148);
+  width: 100%;
+  height: 100%;
+  transform: perspective(84px) rotatex(40deg) scale(1, 0.35);
+  filter: blur(40px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.neon::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 0 128px 32px rgb(255, 126, 148);
+  opacity: 0;
+  background: rgb(255, 126, 148);
+  z-index: -1;
+  transition: opacity(100ms) linear;
+}
+
+.neon:hover::before,
+.neon:hover::after {
+  opacity: 1;
+}
+
+.neon:hover {
+  color: rgb(0, 0, 0);
+  text-shadow: none;
+}
